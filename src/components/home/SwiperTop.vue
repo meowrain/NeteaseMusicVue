@@ -8,12 +8,17 @@
     </div>
 </template>
 <script setup>
-const images = [
-    'https://vip1.loli.io/2022/05/11/7iOfYbw52gKSxpu.jpg',
-    'https://vip2.loli.io/2022/05/11/HAatMhUdEV5kgZp.jpg',
-    'https://vip2.loli.io/2022/05/11/YPl83hbnWFgpIyq.jpg',
-    'https://vip1.loli.io/2022/05/12/cG2aifgQsIJUhNw.jpg'
-]
+import {ref, onMounted } from 'vue';
+import {getBannerImage} from '../../request/api/getBannerImage'
+const images = ref([]);
+onMounted(async ()=>{
+    let res = await getBannerImage();
+    let banner = res.data.banners;
+    console.log(banner)
+    images.value = banner.map((bannerImage)=> bannerImage.pic)
+
+})
+
 </script>
 <style>
 .van-swipe-item {
