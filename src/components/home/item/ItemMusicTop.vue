@@ -1,6 +1,6 @@
 <template>
-  <div class="itemMusicTop" v-if="props">
-    <img :src="props.musics.coverImgUrl" alt="" class="bgimg"/>
+  <div class="itemMusicTop" >
+    <img :src="playListDetail.coverImgUrl" alt="" class="bgimg"/>
     <div class="itemLeft">
       <svg class="icon" aria-hidden="true" @click="$router.go(-1)">
         <use xlink:href="#icon-cat"></use>
@@ -18,26 +18,25 @@
   </div>
 
   <div class="container">
-    <img :src="props.musics.coverImgUrl" alt="" class="avatar"/>
-    <div class="text"><p class="title">{{ props.musics.name }}</p>
-      <p>{{ props.musics.tags }}</p>
+    <img :src="playListDetail.coverImgUrl" alt="" class="avatar"/>
+    <div class="text"><p class="title">{{ playListDetail.name }}</p>
+      <p>{{ playListDetail.tags }}</p>
       <div class="creator">
-<!--        <img :src="props.musics.creator.avatarUrl" alt="" class="creator_avatar"/>-->
-<!--        <span class="creator_nickname">{{ props.musics.creator.nickname }}</span>-->
+        <img :src="playListDetail.creator.avatarUrl" alt="" class="creator_avatar"/>
+        <span class="creator_nickname">{{ playListDetail.creator.nickname }}</span>
       </div>
-      <p class="playCount">播放量:{{props.musics.playCount}}</p>
+      <p class="playCount">播放量:{{playListDetail.playCount}}</p>
+      <p class="playCount">收藏量:{{playListDetail.subscribedCount}}</p>
     </div>
 
   </div>
 
 </template>
 <script setup>
-import {defineProps, watch} from 'vue';
-
-let props = defineProps({
-  musics: Object,
+import {defineProps} from 'vue';
+defineProps({
+  playListDetail: Object
 })
-
 
 </script>
 <style scoped>
@@ -51,10 +50,10 @@ let props = defineProps({
 }
 
 .bgimg {
-  position: fixed;
+  position: absolute;
   top: 0;
   width: 100%;
-  height: 6rem;
+  height: 6.3rem;
   z-index: -1;
   filter: blur(5px);
 }
@@ -80,7 +79,7 @@ let props = defineProps({
 .container {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+
 }
 
 .avatar {
@@ -111,7 +110,7 @@ let props = defineProps({
   align-items: center;
 }
 
-.creator .creator_avatar {
+.creator .creator_avatar{
   width: .7rem;
   height: .7rem;
   border-radius: 50%;
