@@ -1,11 +1,11 @@
 import {createRouter,createWebHistory} from 'vue-router'
-import AppVue from '../App.vue'
 const routes = [
-    {path:'/',component:AppVue},
+    {path:'/',name:'home',component: ()=>import('../views/HomePage.vue')},
+    {path:'/itemMusic',name:'itemMusic',component:()=>import('../views/ItemMusic.vue')}
 ]
 
 const router = createRouter({
     history: createWebHistory(),
-    routes
+    routes:routes
 })
 export default router

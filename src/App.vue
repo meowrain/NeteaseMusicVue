@@ -2,12 +2,12 @@
 <template>
   <div>
     <!-- <router-link to="/">Home</router-link> -->
-    <Home />
+  <router-view></router-view>
   </div>
 </template>
 
 <script setup>
-import Home from './views/Home.vue';
+import Home from './views/HomePage.vue';
 </script>
 <style scoped>
 * {

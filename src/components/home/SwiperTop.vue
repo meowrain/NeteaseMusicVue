@@ -14,7 +14,7 @@ const images = ref([]);
 onMounted(async ()=>{
     let res = await getBannerImage();
     let banner = res.data.banners;
-    console.log(banner)
+    // console.log(banner)
     images.value = banner.map((bannerImage)=> bannerImage.pic)
 
 })
