@@ -12,7 +12,7 @@
             </svg>
             <span>私人FM</span>
         </div>
-        <div class="iconItem">
+        <div class="iconItem" @click="$router.push('/musicSquare')">
             <svg class="icon" aria-hidden="true">
                 <use xlink:href="#icon-cat"></use>
             </svg>

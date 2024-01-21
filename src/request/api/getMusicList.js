@@ -11,3 +11,9 @@ export function getMusicList(id){
         url:`/playlist/track/all?id=${id}&limit=30&offset=0`
     })
 }
+export function getMusicSquare(){
+    return axios_instance({
+        method:'get',
+        url:`/top/playlist/highquality`
+    })
+}
